@@ -1,0 +1,375 @@
+<html lang="en" class=""><head><script src="https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js"></script><script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script><meta charset="UTF-8"><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico"><link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111"><link rel="canonical" href="https://codepen.io/chriscoyier/pen/hBzat">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+<style class="cp-pen-styles">.page-wrap {
+  padding: 20px 60px;
+}
+
+.breadcrumb {
+  margin: 25px 0;
+}</style></head><body>
+<div class="table-responsive">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td style="width: 10%; text-align: center;"><strong>Thẻ</strong></td>
+<td style="width: 29%; text-align: center;"><strong>Tên thẻ</strong></td>
+<td style="width: 10%; text-align: center;"><strong>Ví dụ</strong></td>
+<td style="width: 54%; text-align: center;"><strong>Chức năng</strong></td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;!--...--&gt;</code></td>
+<td style="width: 29%;">Thẻ comment</td>
+<td style="width: 10%;">&lt;!– đây là dòng comment–&gt;</td>
+<td style="width: 54%;">Dùng để mô tả và không được hiển thị.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;a&gt;</code></td>
+<td style="width: 29%;">Thẻ liên kết</td>
+<td style="width: 10%;">&lt;a href=”url”&gt;text&lt;/a&gt;</td>
+<td style="width: 54%;">Dùng để liên kết một văn bản đến một url.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;abbr&gt;</code></td>
+<td style="width: 29%;">Thẻ ghi chú</td>
+<td style="width: 10%;">&lt;abbr title=”ghi chú”&gt;text&lt;/abbr&gt;</td>
+<td style="width: 54%;">Dùng để hiển thị ghi chú cho một văn bản.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;address&gt;</code></td>
+<td style="width: 29%;">Thẻ địa chỉ</td>
+<td style="width: 10%;">&lt;address&gt; Địa chỉ &lt;/address&gt;</td>
+<td style="width: 54%;">Dùng để chứa thông tin địa chỉ.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;article&gt;</code></td>
+<td style="width: 29%;">Thẻ xác định nội dung</td>
+<td style="width: 10%;">&lt;article&gt;Nội dung&nbsp;&lt;/article&gt;</td>
+<td style="width: 54%;">Dùng để xác định khối nội dung độc lập.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;audio&gt;</code></td>
+<td style="width: 29%;">Thẻ âm thanh</td>
+<td style="width: 10%;">&lt;audio&nbsp;controls&gt;<br>
+&lt;source&nbsp;src=”audio.mp3″&nbsp;type=”audio/mpeg”&gt;<br>
+&lt;/audio</td>
+<td style="width: 54%;">Thẻ chứa âm thanh cho phép trên trình duyệt.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;b&gt;</code></td>
+<td style="width: 29%;">Thẻ in đậm</td>
+<td style="width: 10%;">&lt;p&gt;text&lt;b&gt;</td>
+<td style="width: 54%;">in đậm văn bản.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;base&gt;</code></td>
+<td style="width: 29%;">Thẻ URL mặc định</td>
+<td style="width: 10%;">&lt;base&nbsp;href=”url_base”&gt;</td>
+<td style="width: 54%;">khi dùng liên kết tương đối / nó sẽ thay thế thành liên kết base.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;bdi&gt;</code></td>
+<td style="width: 29%;">Cô lập phần tử</td>
+<td style="width: 10%;">&lt;li&gt;text &lt;bdi&gt;إيان&lt;/bdi&gt; 90$&lt;/li&gt;</td>
+<td style="width: 54%;">Cô lặp một phần tử để giữ nguyên cấu trúc định sẵn.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;bdo&gt;</code></td>
+<td style="width: 29%;">Định hướng đoạn</td>
+<td style="width: 10%;">&lt;bdo dir=”rtl”&gt;đây là đoạn chữ.&lt;/bdo&gt;</td>
+<td style="width: 54%;">Có hai hướng là left (ltl) right (rtl), thẻ sẽ định hướng đi của đoạn chữ.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;blockquote&gt;</code></td>
+<td style="width: 29%;">Thẻ trích đoạn</td>
+<td style="width: 10%;">&lt;blockquote&gt;text&lt;/blockquote&gt;</td>
+<td style="width: 54%;">thường dùng để hiển thị một đoạn trích.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;br&gt;</code></td>
+<td style="width: 29%;">Thẻ ngắn dòng</td>
+<td style="width: 10%;">ABC&nbsp;&lt;br&gt; XYZ</td>
+<td style="width: 54%;">Thẻ thực hiện ngắn dòng trên một đoạn và không có thẻ đóng.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;button&gt;</code></td>
+<td style="width: 29%;">Nút bấm</td>
+<td style="width: 10%;">&lt;button&nbsp;type=”button”&gt;Nút bấm&lt;/button&gt;</td>
+<td style="width: 54%;">Dùng để hiển thị một nút bấm.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;canvas&gt;</code></td>
+<td style="width: 29%;">Thẻ đồ họa</td>
+<td style="width: 10%;">&lt;canvas&nbsp;id=”design”&gt;&lt;/canvas&gt;</td>
+<td style="width: 54%;">Thẻ là vùng chứa đồ họa và thường dùng kết hợp&nbsp;JavaScript.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;caption&gt;</code></td>
+<td style="width: 29%;">Mô tả</td>
+<td style="width: 10%;">&lt;caption&gt;mô tả&lt;/caption&gt;</td>
+<td style="width: 54%;">Thường dùng lồng vào đối tượng nào đó để hiển thị mô tả.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;cite&gt;</code></td>
+<td style="width: 29%;">Thẻ tác phẩm</td>
+<td style="width: 10%;">&lt;cite&gt;sống chung với mẹ chồng&lt;/cite&gt;</td>
+<td style="width: 54%;">dùng để đánh dấu đây là tên của một tác phẩm.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;code&gt;</code></td>
+<td style="width: 29%;">Thẻ chứa mã code</td>
+<td style="width: 10%;">&lt;code&gt;mã code&lt;code&gt;</td>
+<td style="width: 54%;">Thẻ cho phép chứa các đoạn mã mà không làm ảnh hưởng đến hiển thị.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;del&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ gạch giữa chữ</td>
+<td style="width: 10%;">&lt;del&gt;text&lt;/del&gt;</td>
+<td style="width: 54%;">Thể hiện một tài liệu được gạch bỏ.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;div&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ định nghĩa một vùng chứa</td>
+<td style="width: 10%;">&lt;div&gt;Nội dung&lt;div&gt;</td>
+<td style="width: 54%;">Được dùng phổ biến để định dạng bố cục.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;embed&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ nhúng</td>
+<td style="width: 10%;">&lt;embed&nbsp;src=”helloworld.swf”&gt;</td>
+<td style="width: 54%;">Dùng để nhúng nội dung bên ngoài trang web.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;figure&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đánh dấu hình ảnh</td>
+<td style="width: 10%;">&lt;figure&gt;<br>
+&lt;img&nbsp;src=”img.jpg”&gt;<br>
+&lt;figcaption&gt;Mô tả.&lt;/figcaption&gt;<br>
+&lt;/figure&gt;</td>
+<td style="width: 54%;">Thẻ chứa nội dung về hình ảnh bao gồm thẻ&nbsp;figcaption để chứa mô tả cho hình ảnh.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;footer&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đánh dấu phần cuối website</td>
+<td style="width: 10%;">&nbsp;&lt;footer&gt;Nội dung&lt;/footer&gt;</td>
+<td style="width: 54%;">Thẻ thường chỉ định những phần ở cuối website.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;form&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ chứa các control nhập liệu</td>
+<td style="width: 10%;">&nbsp;&lt;form&nbsp;action=”/action_page.php”&nbsp;method=”get”&gt;<br>
+Các thẻ input<br>
+&lt;/form&gt;</td>
+<td style="width: 54%;">&nbsp;thẻ&nbsp;&lt;form&gt; được sử dụng chủ yếu để tạo ra vùng nhập liệu và xác định hành động xử lý.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;h1&gt; - &lt;h6&gt;</code></td>
+<td style="width: 29%; text-align: left;">Các thẻ heading</td>
+<td style="width: 10%;">&nbsp;&lt;h1&gt;Text&lt;/h1&gt;<br>
+….<br>
+&lt;h6&gt;Text&lt;/h6&gt;</td>
+<td style="width: 54%;">&nbsp;Là các thẻ tiêu đề định dạng từ số 1 đến số 6.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;header&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đánh dấu phần đầu website</td>
+<td style="width: 10%;">&nbsp;&lt;header/&gt;Nội dung&lt;header&gt;</td>
+<td style="width: 54%;">Thẻ thường chỉ định những phần ở đầu website.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;hr&gt;</code></td>
+<td style="width: 29%; text-align: left;">&nbsp;Thẻ xác định thay đổi chủ đề</td>
+<td style="width: 10%;">&nbsp;Chủ đề 1 &lt;hr&gt; chủ đề 2</td>
+<td style="width: 54%;">Thẻ tạo ra đường ngăn cách phân tách các nội dung khác nhau.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&nbsp;&lt;i&gt;</code></td>
+<td style="width: 29%; text-align: left;">&nbsp;Thẻ in nghiên</td>
+<td style="width: 10%;">&nbsp;&lt;i&gt; Nội dung&nbsp;&lt;/i&gt;</td>
+<td style="width: 54%;">&nbsp;In nghiên các đoạn text</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;iframe&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ nội tuyến</td>
+<td style="width: 10%;">&lt;iframe src=”https://tuandc.com”&gt;&lt;/iframe&gt;</td>
+<td style="width: 54%;">Nhúng một tài liệu HTML từ URL khác vào HTML hiện tại</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;img&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ hình ảnh</td>
+<td style="width: 10%;">&lt;img&nbsp;src=”img.gif”&gt;</td>
+<td style="width: 54%;">Thẻ hiển thị hình ảnh trên HTML</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;input&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ nhập liệu</td>
+<td style="width: 10%;">&lt;input&nbsp;type=”text”&nbsp;name=”name”&gt;</td>
+<td style="width: 54%;">Thẻ dùng để người dùng nhập liệu thường nằm trong thẻ &lt;form&gt;</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;ins&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ xác định đoạn được chèn</td>
+<td style="width: 10%;">&lt;ins&gt;Nội dung&nbsp;&lt;/ins&gt;</td>
+<td style="width: 54%;">Thẻ được dùng để xác định một đoạn được chèn vào và hiển thị một dấu gạch chân.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;label&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ nhãn</td>
+<td style="width: 10%;">&lt;label&gt;nhãn&lt;/label&gt;</td>
+<td style="width: 54%;">thường là nhãn cho thẻ input</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;li&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ mục trong danh sách</td>
+<td style="width: 10%;">&lt;li&gt;Item&lt;/li&gt;</td>
+<td style="width: 54%;">Thẻ được nằm trong thẻ &lt;ul&gt; hoặc &lt;ol&gt; thể hiện các mục của danh sách.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;link&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ liên kết tài nguyên ngoài</td>
+<td style="width: 10%;">&lt;link&nbsp;rel=”stylesheet”&nbsp;type=”text/css”&nbsp;href=”style.css”&gt;</td>
+<td style="width: 54%;">Thẻ dùng để gọi các tệp tài nguyên như CSS, JS,…</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;main&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ xác định nội dung chính</td>
+<td style="width: 10%;">&lt;main&gt;Nội dung&nbsp;&lt;/main&gt;</td>
+<td style="width: 54%;">Thẻ dùng để xác định những nội dung chính của một trang.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;mark&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đánh dấu</td>
+<td style="width: 10%;">&lt;mark&gt;nội dung&lt;/mark&gt;</td>
+<td style="width: 54%;">Thẻ đánh dấu một nội dung trong đoạn bằng cách tô nền nội dung đó.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;meta&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ thông tin</td>
+<td style="width: 10%;">&lt;meta&nbsp;name=”description”&nbsp;content=”nội dung”&gt;</td>
+<td style="width: 54%;">Thẻ cung cấp thông tin cơ bản về trang web.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;nav&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ điều hướng</td>
+<td style="width: 10%;">&lt;nav&gt; các liên kết&nbsp;&lt;/nav&gt;</td>
+<td style="width: 54%;">Thường sử dụng cho menu.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;noscript&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thực thi khi người dùng tắt script</td>
+<td style="width: 10%;">&lt;noscript&gt;Trình duyệt không hỗ trợ script&lt;/noscript&gt;</td>
+<td style="width: 54%;">Dùng để hiển thị thông báo hoặc thực thi thay thế khi trình duyệt của người dùng k hỗ trợ&nbsp;javascript hoặc bị tắt.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;ol&gt; hoặc&nbsp;&lt;ul&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ hiển thị danh sách</td>
+<td style="width: 10%;">&lt;ol&gt;<br>
+&lt;li&gt;nội dung&lt;/li&gt;<br>
+&lt;li&gt;nội dung&lt;/li&gt;<br>
+&lt;/ol&gt;thẻ &lt;ul&gt; tương tự</td>
+<td style="width: 54%;">Thẻ cho phép hiển thị một danh sách được kết hợp với thẻ li. thẻ &lt;ol&gt; hiển thị danh sách được đánh số trong khi thẻ &lt;ul&gt; thì không có đánh số.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;option&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ tùy chọn</td>
+<td style="width: 10%;">&nbsp;&lt;option&nbsp;value=”giá trị”&gt;Tên giá trị&lt;/option&gt;</td>
+<td style="width: 54%;">Là thẻ tùy chọn được nằm trong thẻ&nbsp;&lt;select&gt;</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;p&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đoạn văn bản</td>
+<td style="width: 10%;">&lt;p&gt;Nội dung&lt;/p&gt;</td>
+<td style="width: 54%;">Hiển thị một đoạn văn bản</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;pre&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ định dạng trước</td>
+<td style="width: 10%;">&lt;pre&gt;Nội dung&lt;/pre&gt;</td>
+<td style="width: 54%;">Thẻ giúp hiển thị nội nội với văn bản được dịnh dạng trước giữ nguyên.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;script&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ chứa mã&nbsp;script</td>
+<td style="width: 10%;">&lt;script&gt;Nội dung&lt;/script&gt;</td>
+<td style="width: 54%;">Thẻ cho phép nhúng trực tiếp các đoạn&nbsp;script trong html</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;section&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ thành phần</td>
+<td style="width: 10%;">&lt;section&gt; Nội dung&nbsp;&lt;/section&gt;</td>
+<td style="width: 54%;">Thẻ đánh đấu một phần của tài liệu HTML.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;select&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ lựa chọn</td>
+<td style="width: 10%;">&lt;select&gt;<br>
+Thẻ option<br>
+&lt;/select&gt;</td>
+<td style="width: 54%;">Thẻ chứa các thẻ option hiển thị một list lựa chọn.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;span&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ ngắt</td>
+<td style="width: 10%;">Đây là &lt;span style=”color:red”&gt;Tuandc&lt;/span&gt;</td>
+<td style="width: 54%;">Thẻ dùng để ngắn và tạo ra một định dạng riêng cho đoạn ngắt.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;strong&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ đánh dấu quan trọng</td>
+<td style="width: 10%;">&lt;strong&gt;Nội dung&lt;/strong&gt;</td>
+<td style="width: 54%;">Thẻ đánh dấu đoạn văn bản quan trọng bằng hiển thị in đậm.</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;style&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ định dạng</td>
+<td style="width: 10%;">&lt;style&gt; định dạng css&nbsp;&lt;/style&gt;</td>
+<td style="width: 54%;">Thẻ cho phép định dạng css được định dạng trực tiếp trên tệp HTML</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;sub&gt; và&nbsp;&lt;sup&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ phụ</td>
+<td style="width: 10%;">&lt;sub&gt;1/2&lt;/sub&gt;<br>
+&lt;sup&gt;2&lt;/sup&gt;</td>
+<td style="width: 54%;">Định dạng một chữ viết thụt lên (sup) hoặc thụt xuống (sub)</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;table&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ bảng</td>
+<td style="width: 10%;">&lt;table&gt;Thành phần bảng&lt;/table&gt;</td>
+<td style="width: 54%;">Thẻ chứa các thẻ định dạng bảng</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;tr&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ hàng trong bảng</td>
+<td style="width: 10%;">&lt;tr&gt; các thẻ cột&nbsp;&lt;/tr&gt;</td>
+<td style="width: 54%;">Thẻ chứa các thẻ định dạng cột</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;th&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ cột trong bảng</td>
+<td style="width: 10%;">&lt;th&gt; Nội dung cột &lt;/th&gt;</td>
+<td style="width: 54%;">Thẻ chứa các nội dung cho cột</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;textarea&gt;&nbsp;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ nhập đoạn văn bản</td>
+<td style="width: 10%;">&lt;textarea rows=”4″&nbsp;cols=”50″&gt;Nội dung&lt;/textarea&gt;</td>
+<td style="width: 54%;">Thẻ dùng để nhập liệu một đoạn nội dung dài</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;time&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ xác định thời gian</td>
+<td style="width: 10%;">&lt;time&gt;10:00&lt;/time&gt;</td>
+<td style="width: 54%;">Thẻ dùng để xác định một đoạn văn bản là thời gian trong HTML</td>
+</tr>
+<tr>
+<td style="width: 10%; text-align: center;"><code>&lt;title&gt;</code></td>
+<td style="width: 29%; text-align: left;">Thẻ tiêu đề trang</td>
+<td style="width: 10%;">&lt;title&gt;Tiêu đề&lt;/title&gt;</td>
+<td style="width: 54%;">Thẻ hiển thị tiêu đề của trang và được đặt ở thẻ &lt;head&gt;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</body></html>
